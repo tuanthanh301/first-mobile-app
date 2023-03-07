@@ -10,7 +10,7 @@ const LoginScreen = () => {
     const { navigate } = useNavigation();
 
     const goToHome = () => {
-        navigate('HomeScreen', { useName: 'Nguyen Tuan Thanh' });
+        navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
     };
     return (
         <View style={styles.container}>

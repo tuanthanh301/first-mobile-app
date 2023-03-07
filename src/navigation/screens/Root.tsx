@@ -15,6 +15,8 @@ const AppStack = () => {
   return (
     <MainStack.Navigator
       screenOptions={{ headerShown: false }}
+      
+      
     >
       <MainStack.Screen name="LoginScreen" component={LoginScreen} />
       <MainStack.Screen name="HomeScreen" component={HomeScreen} />
@@ -36,8 +38,7 @@ const Tab = createBottomTabNavigator();
 
 const Root = () => {
   return (
-    <AppStack />
-    // <MyTabs/>
+     <AppStack />
   )
 }
 

@@ -50,13 +50,19 @@ const LoginScreen = () => {
             </View> */}
             <View style={styles.logoLogin}>
                 <TouchableOpacity>
-                    <SocialLogin source='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK' />
+                    <SocialLogin
+                        content='Continue with Google '
+                        source='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK' />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <SocialLogin source='https://www.facebook.com/images/fb_icon_325x325.png' />
+                    <SocialLogin
+                        content='Continue with Facebook'
+                        source='https://www.facebook.com/images/fb_icon_325x325.png' />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <SocialLogin source='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png' />
+                    <SocialLogin
+                        content='Continue with Twitter'
+                        source='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png' />
                 </TouchableOpacity>
             </View>
             <View style={styles.textDontHave}>
@@ -98,16 +104,19 @@ const styles = StyleSheet.create({
         fontWeight: '300'
     },
     buttonSignIn: {
+        flex: 1,
+        width: 100,
         backgroundColor: "#1a1a20",
         alignSelf: 'center',
         borderRadius: 20,
-        padding: 9,
+        padding: 3 ,
         marginTop: 20,
     },
     buttonSignInText: {
         color: 'white',
         fontSize: 16,
-        padding: 8
+        padding: 8,
+        alignSelf: 'center',
 
     },
     orSignInText: {

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Images from '../../assests';
 import StyledText from '../../components/base/StyledText';
 import SocialLogin from '../../components/common/SocialLogin';
@@ -10,7 +10,7 @@ const LoginScreen = () => {
     const { navigate } = useNavigation();
 
     const goToHome = () => {
-        navigate('HomeScreen', { useName: 'Nguyen Tuan Thanh' });
+        navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
     };
     return (
         <View style={styles.container}>
@@ -76,6 +76,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#2c3034df",
+        paddingTop: Platform.OS === 'ios' ? 40 : 0,
+
     },
     title: {
         fontSize: 30,

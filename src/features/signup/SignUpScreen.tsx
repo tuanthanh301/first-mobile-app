@@ -4,7 +4,7 @@ import StyledInput from '../../components/common/StyledInput'
 import Images from '../../assests'
 import StyledCheckBox from '../../components/base/StyledCheckBox'
 
-const HomeScreen = () => {
+const SignUpScreen = () => {
   // const [group, setGroup] = useState(['Nam', 'Nu', 'Toi dong y']);
   const [selectedItem, setSelectedItem] = useState('Quyet');
   const handleSelect = (id: string, isCheck: boolean) => {
@@ -133,7 +133,7 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default SignUpScreen
 
 const styles = StyleSheet.create({
   container: {

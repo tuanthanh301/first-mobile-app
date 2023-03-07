@@ -14,8 +14,7 @@ const LoginScreen = () => {
     };
     return (
         <View style={styles.container}>
-            <View style={
-                styles.header}>
+            <View style={styles.header}>
                 <Text style={styles.title}>DC Cinema</Text>
                 <Text style={styles.welcomeText}>Welcome back</Text>
                 <Text style={styles.loginText}>Login to your account</Text>
@@ -24,7 +23,7 @@ const LoginScreen = () => {
                     customStyle={{color: 'red'}}
                 /> */}
             </View>
-            <View style={{ flex: 1, paddingHorizontal: 40 }}>
+            <View style={styles.infor}>
                 <StyledInput
                     label="Username"
                     placeholderText="Enter your username"
@@ -45,9 +44,6 @@ const LoginScreen = () => {
                     <Text style={styles.buttonSignInText}>Sign in</Text>
                 </TouchableOpacity>
             </View>
-            {/* <View style={styles.orSignInText}>
-                <Text style={{color: '#a8a8a9df'}}>Or sign in with</Text>
-            </View> */}
             <View style={styles.logoLogin}>
                 <TouchableOpacity>
                     <SocialLogin source='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK' />
@@ -84,7 +80,13 @@ const styles = StyleSheet.create({
     header: {
         justifyContent: "center",
         alignItems: "center",
-        flex: 1
+        height: 150,
+    },
+    infor: {
+        justifyContent: "center",
+        alignItems: "center",
+        paddingHorizontal: 30,
+        height: 265,
     },
     welcomeText: {
         fontSize: 20,
@@ -99,32 +101,26 @@ const styles = StyleSheet.create({
     },
     buttonSignIn: {
         backgroundColor: "#1a1a20",
-        alignSelf: 'center',
         borderRadius: 20,
-        padding: 9,
-        marginTop: 20,
+        width: 100,
+        height: 45,
+        marginTop: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        
     },
     buttonSignInText: {
-        color: 'white',
         fontSize: 16,
-        padding: 8
-
-    },
-    orSignInText: {
-        flex: 0.5,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 100,
+        color: 'white',
     },
     logoLogin: {
-        flex: 1,
         // flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 20,
+        height: 200,
 
     },
     textDontHave: {
-        flex: 0.5,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'

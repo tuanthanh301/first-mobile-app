@@ -21,6 +21,7 @@ const StyledInput = (props: any) => {
           <Image source={props.leftIcon} style={{ width: 25, height: 25 }} />
         </View>
         <TextInput
+          placeholderTextColor="white"
           style={[styles.textInput, props.customStyle]}
           placeholder={props.placeholderText}
           onChangeText={props.onChangeText}
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     // placeholderTextColor: 'white',
     height: 50,
     backgroundColor: '#1a1a20',
-    color:'white',
+    color: 'white',
     marginBottom: 10,
     marginLeft: -20,
     width: '100%',

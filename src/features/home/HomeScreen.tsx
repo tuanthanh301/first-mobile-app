@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import StyledInput from '../../components/common/StyledInput'
 import Images from '../../assests'
@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const handleSelect = (id: string, isCheck: boolean) => {
     setSelectedItem(id);
   };
-  const [username,setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [isValidUserName, setIsValidUserName] = useState(true);
   const [password, setPassword] = useState('');
   const [isValidPassword, setIsValidPassword] = useState(true);
@@ -19,20 +19,20 @@ const HomeScreen = () => {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
   const verifyUserName = () => {
-    if (username.length >= 6){
+    if (username.length >= 6) {
       return true;
     }
     return false
   }
   const verifyPassword = () => {
     const regex = new RegExp(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/);
-    if (regex.test(password)){
+    if (regex.test(password)) {
       return true
     }
     return false
   }
   const verifyConfirmPassword = () => {
-    if (confirmPassword == password){
+    if (confirmPassword == password) {
       return true
     }
     return false
@@ -40,7 +40,7 @@ const HomeScreen = () => {
   const verifyEmail = () => {
     let regex = new RegExp(/([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])/);
     if (!email) return true;
-    if (regex.test(email)){
+    if (regex.test(email)) {
       return true
     }
     return false
@@ -48,12 +48,12 @@ const HomeScreen = () => {
   const handleSignUp = () => {
     if (verifyUserName() && verifyPassword() && verifyConfirmPassword() && verifyEmail()) {
       Alert.alert('', 'Sign Up Successful', [
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
       ]);
     }
     else {
-      Alert.alert('Sign Up Failed','Please re-enter your information', [
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      Alert.alert('Sign Up Failed', 'Please re-enter your information', [
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
       ]);
     }
   }
@@ -71,11 +71,11 @@ const HomeScreen = () => {
           onChangeText={(text: string) => {
             setUsername(text);
             const isValid = verifyUserName();
-            isValid? setIsValidUserName(true) : setIsValidUserName(false)
+            isValid ? setIsValidUserName(true) : setIsValidUserName(false)
           }}
           value={username}
         />
-        <Text style={styles.validStyle}>{isValidUserName? '': 'Username is invalid!'} </Text>
+        <Text style={styles.validStyle}>{isValidUserName ? '' : 'Username is invalid!'} </Text>
         <StyledInput
           label="Password"
           placeholderText='Enter your password'
@@ -87,7 +87,7 @@ const HomeScreen = () => {
           }}
           value={password}
         />
-        <Text style={styles.validStyle}>{isValidPassword? '': 'Password is invalid!'} </Text>
+        <Text style={styles.validStyle}>{isValidPassword ? '' : 'Password is invalid!'} </Text>
         <StyledInput
           label="Confirm Password"
           placeholderText='Confirm your password'
@@ -97,11 +97,11 @@ const HomeScreen = () => {
           onChangeText={(text: string) => {
             setConfirmPassword(text);
             const isValid = verifyConfirmPassword();
-            isValid? setIsValidConfirmPassword(true) : setIsValidConfirmPassword(false)
+            isValid ? setIsValidConfirmPassword(true) : setIsValidConfirmPassword(false)
           }}
           value={confirmPassword}
         />
-        <Text style={styles.validStyle}>{isValidConfirmPassword? '':'Password must be same'} </Text>
+        <Text style={styles.validStyle}>{isValidConfirmPassword ? '' : 'Password must be same'} </Text>
         <StyledInput
           label="Email"
           placeholderText='Example: nnheo@example.com'
@@ -110,11 +110,11 @@ const HomeScreen = () => {
           onChangeText={(text: string) => {
             setEmail(text);
             const isValid = verifyEmail();
-            isValid? setIsValidEmail(true) : setIsValidEmail(false);
+            isValid ? setIsValidEmail(true) : setIsValidEmail(false);
           }}
           value={email}
         />
-        <Text style={styles.validStyle}> {isValidEmail? '':'Email is invalid!' }</Text>
+        <Text style={styles.validStyle}> {isValidEmail ? '' : 'Email is invalid!'}</Text>
         {/* <View>
           <StyledCheckBox
             id={'Toi dong y'}
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#3a3e42e0",
+    paddingTop: Platform.OS === 'ios' ? 40 : 0,
   },
   title: {
     alignSelf: 'center',

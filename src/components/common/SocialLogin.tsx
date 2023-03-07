@@ -3,6 +3,7 @@ import React from 'react'
 
 interface Props {
   source: string;
+  content: string;
 }
 const SocialLogin = (props: Props) => {
   return (
@@ -26,11 +27,10 @@ const SocialLogin = (props: Props) => {
       marginTop: 10,
       elevation: 12,
     }}>
-      <Text style={styles.continueText}>Continue with     </Text>
       <Image source={{ uri: props.source }}
-        style={{ width: 30, height: 30}}
+        style={{ width: 30, height: 30 }}
       />
-      
+      <Text style={styles.continueText}>  {props.content} </Text>
       {/* <Image onPress={() => console.log('Sign in')} title="Sign in" /> */}
 
     </View>

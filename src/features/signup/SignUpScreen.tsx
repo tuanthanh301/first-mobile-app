@@ -1,8 +1,10 @@
-import { Alert, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState } from 'react'
 import StyledInput from '../../components/common/StyledInput'
 import Images from '../../assests'
 import StyledCheckBox from '../../components/base/StyledCheckBox'
+import { useNavigation } from '@react-navigation/native'
 
 const SignUpScreen = () => {
   // const [group, setGroup] = useState(['Nam', 'Nu', 'Toi dong y']);
@@ -10,6 +12,11 @@ const SignUpScreen = () => {
   const handleSelect = (id: string, isCheck: boolean) => {
     setSelectedItem(id);
   };
+
+
+  const { navigate } = useNavigation();
+
+
   const [username, setUsername] = useState('');
   const [isValidUserName, setIsValidUserName] = useState(true);
   const [password, setPassword] = useState('');
@@ -45,11 +52,45 @@ const SignUpScreen = () => {
     }
     return false
   }
+
+  const createAccount = async () => {
+    let userData = await AsyncStorage.getItem("userData");
+    console.log(userData)
+    if (userData) {
+      userData = JSON.parse(userData);
+      let arr = [...userData];
+      arr = arr.filter(
+        (value) => value.email.toLocaleLowerCase() == email.toLocaleLowerCase()
+      );
+      if (arr.length > 0) {
+        Alert.alert("Email already registered!");
+        return;
+      } else {
+        userData.push({
+          username: username.trim(),
+          email: email.trim(),
+          password: password.trim(),
+        });
+      }
+    } else {
+      userData = [];
+      userData.push({
+        username: username.trim(),
+        email: email.trim(),
+        password: password.trim(),
+      });
+    }
+    AsyncStorage.setItem("userData", JSON.stringify(userData));
+    Alert.alert("Đăng ký thành công!");
+    //navigation.goBack();
+  };
+
   const handleSignUp = () => {
     if (verifyUserName() && verifyPassword() && verifyConfirmPassword() && verifyEmail()) {
-      Alert.alert('', 'Sign Up Successful', [
-        { text: 'OK', onPress: () => console.log('OK Pressed') },
-      ]);
+      // Alert.alert('', 'Sign Up Successful', [
+      //   { text: 'OK', onPress: () => console.log('OK Pressed') },
+      // ]);
+      createAccount();
     }
     else {
       Alert.alert('Sign Up Failed', 'Please re-enter your information', [
@@ -141,6 +182,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#3a3e42e0",
     paddingTop: Platform.OS === 'ios' ? 40 : 0,
   },
+  stretch: {
+    width: 50,
+    height: 50,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+
+  },
   title: {
     alignSelf: 'center',
     fontSize: 30,
@@ -154,7 +203,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 20,
     padding: 9,
-    marginTop: 20,
+    marginTop: -30,
   },
   buttonSignUpText: {
     color: 'white',

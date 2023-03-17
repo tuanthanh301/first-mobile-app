@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState } from 'react';
+import { Alert, Button, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Images from '../../assests';
 import StyledText from '../../components/base/StyledText';
 import SocialLogin from '../../components/common/SocialLogin';
@@ -9,9 +10,44 @@ import StyledInput from '../../components/common/StyledInput';
 const LoginScreen = () => {
     const { navigate } = useNavigation();
 
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+
+
     const goToHome = () => {
-        navigate('HomeScreen', { useName: 'Nguyen Tuan Thanh' });
+        if (username.trim() == '' || !username) {
+            Alert.alert('Không được để trống email !');
+        } else if (password.trim() == '' || !password) {
+            Alert.alert('Không được để trống mật khẩu !');
+        } else {
+            login();
+        }
     };
+    const login = async () => {
+        let userData = await AsyncStorage.getItem('userData');
+        if (userData) {
+            userData = JSON.parse(userData);
+            let arr = [...userData];
+            arr = arr.filter(
+                (value) =>
+                    value.username.toLocaleLowerCase() == username.toLocaleLowerCase() &&
+                    value.password == password
+            );
+            if (arr.length > 0) {
+                let curUser = arr[0];
+                AsyncStorage.setItem('curUser', JSON.stringify(curUser));
+                //navigation.replace('HomeTab');
+                Alert.alert('Đăng nhập thành công')
+            } else Alert.alert('Tên hoặc mật khẩu không chính xác!');
+        } else {
+            Alert.alert('Tên hoặc mật khẩu không chính xác!');
+        }
+    };
+
+    const goToSignUpScreen = () => {
+        navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -25,6 +61,7 @@ const LoginScreen = () => {
             </View>
             <View style={styles.infor}>
                 <StyledInput
+                    onChangeText={setUsername}
                     label="Username"
                     placeholderText="Enter your username"
                     customStyle={{ borderRadius: 25, paddingLeft: 25 }}
@@ -32,6 +69,7 @@ const LoginScreen = () => {
                 />
 
                 <StyledInput
+                    onChangeText={setPassword}
                     label="Password"
                     placeholderText='Enter your password'
                     secureTextEntry={true}
@@ -39,7 +77,7 @@ const LoginScreen = () => {
                 // leftIcon={Images.icons.loginScreen.user}
                 />
                 <TouchableOpacity
-                    onPress={() => console.log('Sign in')}
+                    onPress={goToHome}
                     style={styles.buttonSignIn}>
                     <Text style={styles.buttonSignInText}>Sign in</Text>
                 </TouchableOpacity>
@@ -63,7 +101,7 @@ const LoginScreen = () => {
             </View>
             <View style={styles.textDontHave}>
                 <Text style={{ color: '#a8a8a9df' }}>Don't have an account?</Text>
-                <TouchableOpacity onPress={goToHome}>
+                <TouchableOpacity onPress={goToSignUpScreen}>
                     <Text style={styles.signUpHere}>Sign up here</Text>
                 </TouchableOpacity>
             </View>
@@ -76,6 +114,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#2c3034df",
+        paddingTop: Platform.OS === 'ios' ? 40 : 0,
+
     },
     title: {
         fontSize: 30,
@@ -114,7 +154,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         alignItems: "center",
         justifyContent: "center",
-        
+
     },
     buttonSignInText: {
         fontSize: 16,

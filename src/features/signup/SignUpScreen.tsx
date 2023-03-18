@@ -1,5 +1,6 @@
 import { Alert, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { AsyncStorage } from 'react-native';
 import React, { useState } from 'react'
 import StyledInput from '../../components/common/StyledInput'
 import Images from '../../assests'

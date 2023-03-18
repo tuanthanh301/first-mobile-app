@@ -6,6 +6,7 @@ import Images from '../../assests';
 import StyledText from '../../components/base/StyledText';
 import SocialLogin from '../../components/common/SocialLogin';
 import StyledInput from '../../components/common/StyledInput';
+import { loginRequest } from '../../api/authenticate';
 
 const LoginScreen = () => {
     const { navigate } = useNavigation();
@@ -14,15 +15,15 @@ const LoginScreen = () => {
     const [username, setUsername] = useState('');
 
 
-    const goToHome = () => {
-        if (username.trim() == '' || !username) {
-            Alert.alert('Không được để trống email !');
-        } else if (password.trim() == '' || !password) {
-            Alert.alert('Không được để trống mật khẩu !');
-        } else {
-            login();
-        }
+    const goToHome = async() => {
+       try { 
+            const response = await loginRequest({username: 'thanvutru18', password: '123456'})
+            console.log(response.data);
+        } catch (error) {
+        
+       }
     };
+
     const login = async () => {
         let userData = await AsyncStorage.getItem('userData');
         if (userData) {
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: 45,
         marginTop: 10,
+        marginBottom: Platform.OS === 'ios'? 20 : 0,
         alignItems: "center",
         justifyContent: "center",
 
@@ -159,9 +161,12 @@ const styles = StyleSheet.create({
     buttonSignInText: {
         fontSize: 16,
         color: 'white',
+
+
     },
     logoLogin: {
         // flexDirection: 'row',
+        marginTop: 20,
         justifyContent: 'center',
         height: 200,
 

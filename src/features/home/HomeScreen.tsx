@@ -9,10 +9,7 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.tab}>
-                <Tabs></Tabs>
-            </View>
-
+            <Text>ádkahsdk</Text>
         </View>
     )
 }

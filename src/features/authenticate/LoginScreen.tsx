@@ -48,7 +48,9 @@ const LoginScreen = () => {
     const goToSignUpScreen = () => {
         navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
     };
-
+    const goToProfile = () => { 
+        navigate('Profile', { useName: 'Nguyen Tuan Thanh'});
+    };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -84,7 +86,7 @@ const LoginScreen = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.logoLogin}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={goToProfile}>
                     <SocialLogin
                         content='Continue with Google '
                         source='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK' />

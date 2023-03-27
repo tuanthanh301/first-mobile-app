@@ -6,13 +6,13 @@ import Images from '../../assests';
 import StyledText from '../../components/base/StyledText';
 import SocialLogin from '../../components/common/SocialLogin';
 import StyledInput from '../../components/common/StyledInput';
+import { loginRequest } from '../../api/authenticate';
 
 const LoginScreen = () => {
     const { navigate } = useNavigation();
 
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-
 
     const goToHome = () => {
         if (username.trim() == '' || !username) {
@@ -22,7 +22,15 @@ const LoginScreen = () => {
         } else {
             login();
         }
+    const goToHome = async() => {
+       try { 
+            const response = await loginRequest({username: 'thanvutru18', password: '123456'})
+            console.log(response.data);
+        } catch (error) {
+        
+       }
     };
+
     const login = async () => {
         let userData = await AsyncStorage.getItem('userData');
         if (userData) {
@@ -47,7 +55,9 @@ const LoginScreen = () => {
     const goToSignUpScreen = () => {
         navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
     };
-
+    const goToProfile = () => { 
+        navigate('Profile', { useName: 'Nguyen Tuan Thanh'});
+    };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -83,7 +93,7 @@ const LoginScreen = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.logoLogin}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={goToProfile}>
                     <SocialLogin
                         content='Continue with Google '
                         source='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK' />
@@ -152,6 +162,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: 45,
         marginTop: 10,
+        marginBottom: Platform.OS === 'ios'? 20 : 0,
         alignItems: "center",
         justifyContent: "center",
 
@@ -159,9 +170,12 @@ const styles = StyleSheet.create({
     buttonSignInText: {
         fontSize: 16,
         color: 'white',
+
+
     },
     logoLogin: {
         // flexDirection: 'row',
+        marginTop: 20,
         justifyContent: 'center',
         height: 200,
 

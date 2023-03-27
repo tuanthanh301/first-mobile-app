@@ -4,12 +4,14 @@ import { useNavigation } from '@react-navigation/native'
 import Tabs from '../../navigation/screens/Tab';
 import HomeFilm from '../settings/HomeFilm';
 import Trailer from '../settings/Trailer';
+import DetailFilm from '../DetailFilm/DetailFilm';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
 
     return (
-       <HomeFilm />
+    //    <HomeFilm />
+       <DetailFilm/>
         // <View style={styles.container}>
 
         //     <View style={styles.tab}>

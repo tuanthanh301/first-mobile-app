@@ -18,11 +18,11 @@ function MyTabs() {
     </Tab.Navigator>
   );
 };
-const Tabs = () => {
-  return (
-    <MyTabs/>
-  );
-};
-export default Tabs;
+// const Tabs = () => {
+//   return (
+//     <MyTabs/>
+//   );
+// };
+export default MyTabs;
 
 const styles = StyleSheet.create({})

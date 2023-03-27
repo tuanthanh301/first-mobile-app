@@ -2,15 +2,20 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Tabs from '../../navigation/screens/Tab';
-
+import HomeFilm from '../settings/HomeFilm';
+import Trailer from '../settings/Trailer';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
-            <Text>ádkahsdk</Text>
-        </View>
+       <HomeFilm />
+        // <View style={styles.container}>
+
+        //     <View style={styles.tab}>
+        //         <Tabs></Tabs>
+        //     </View>
+        // </View>
     )
 }
 
@@ -28,3 +33,4 @@ const styles = StyleSheet.create({
         right: 0,
     }
 })
+

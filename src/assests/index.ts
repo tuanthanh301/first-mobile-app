@@ -6,6 +6,14 @@ const Images = {
             password: require('./icon/lock.png'),
             
         },
+        iconSearch: {
+            kinhlup: require('./icon/search.png'),
+        },
+        iconCategory: 
+        {
+            phimma: require('./icon/iconMa.png'),
+            phimlove: require('./icon/iconLove.png'),
+        },
         profileScreen: {
             details: require('./icon/detailgray.png'),
             edit: require('./icon/usergray.png'),

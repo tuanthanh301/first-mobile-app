@@ -82,7 +82,7 @@ const SignUpScreen = () => {
       });
     }
     AsyncStorage.setItem("userData", JSON.stringify(userData));
-    Alert.alert("Đăng ký thành công!");
+    Alert.alert("Sign Up Success!");
     //navigation.goBack();
   };
 

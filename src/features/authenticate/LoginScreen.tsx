@@ -14,7 +14,14 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
-
+    const goToHome = () => {
+        if (username.trim() == '' || !username) {
+            Alert.alert('Username cannot be left blank!');
+        } else if (password.trim() == '' || !password) {
+            Alert.alert('Password cannot be left blank!');
+        } else {
+            login();
+        }
     const goToHome = async() => {
        try { 
             const response = await loginRequest({username: 'thanvutru18', password: '123456'})
@@ -37,11 +44,11 @@ const LoginScreen = () => {
             if (arr.length > 0) {
                 let curUser = arr[0];
                 AsyncStorage.setItem('curUser', JSON.stringify(curUser));
-                //navigation.replace('HomeTab');
-                Alert.alert('Đăng nhập thành công')
-            } else Alert.alert('Tên hoặc mật khẩu không chính xác!');
+                navigate('HomeScreen', { useName: 'gotoHome' });
+                Alert.alert('Logged in successfully')
+            } else Alert.alert('Incorrect username or password!');
         } else {
-            Alert.alert('Tên hoặc mật khẩu không chính xác!');
+            Alert.alert('Incorrect username or password!');
         }
     };
 

@@ -17,8 +17,9 @@ const AppStack = () => {
   return (
     <MainStack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="LoginScreen"
+      initialRouteName="LoginScreen" 
     >
+      <MainStack.Screen name='BottomTab' component={MyTabs}/>
     </MainStack.Navigator>
   )
 };

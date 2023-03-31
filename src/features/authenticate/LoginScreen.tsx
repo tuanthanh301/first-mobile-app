@@ -20,16 +20,17 @@ const LoginScreen = () => {
         } else if (password.trim() == '' || !password) {
             Alert.alert('Password cannot be left blank!');
         } else {
-            login();
+            // login();
         }
-    const goToHome = async() => {
-       try { 
-            const response = await loginRequest({username: 'thanvutru18', password: '123456'})
-            console.log(response.data);
-        } catch (error) {
+    }
+    // const goToHome = async() => {
+    //    try { 
+    //         const response = await loginRequest({username: 'thanvutru18', password: '123456'})
+    //         console.log(response.data);
+    //     } catch (error) {
         
-       }
-    };
+    //    }
+    // };
 
     const login = async () => {
         let userData = await AsyncStorage.getItem('userData');
@@ -189,5 +190,5 @@ const styles = StyleSheet.create({
     signUpHere: {
         color: '#ff6a00',
         fontWeight: '600'
-    }
+    },
 });

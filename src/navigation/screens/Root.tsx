@@ -20,6 +20,7 @@ const AppStack = () => {
       initialRouteName="LoginScreen" 
     >
       <MainStack.Screen name='BottomTab' component={MyTabs}/>
+      {/* <MainStack.Screen name='LoginScreen' component={LoginScreen}/> */}
     </MainStack.Navigator>
   )
 };

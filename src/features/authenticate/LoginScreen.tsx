@@ -20,7 +20,7 @@ const LoginScreen = () => {
         } else if (password.trim() == '' || !password) {
             Alert.alert('Password cannot be left blank!');
         } else {
-            // login();
+            login();
         }
     }
     // const goToHome = async() => {
@@ -33,31 +33,34 @@ const LoginScreen = () => {
     // };
 
     const login = async () => {
-        let userData = await AsyncStorage.getItem('userData');
-        if (userData) {
-            userData = JSON.parse(userData);
-            let arr = [...userData];
-            arr = arr.filter(
-                (value) =>
-                    value.username.toLocaleLowerCase() == username.toLocaleLowerCase() &&
-                    value.password == password
-            );
-            if (arr.length > 0) {
-                let curUser = arr[0];
-                AsyncStorage.setItem('curUser', JSON.stringify(curUser));
-                navigate('HomeScreen', { useName: 'gotoHome' });
-                Alert.alert('Logged in successfully')
-            } else Alert.alert('Incorrect username or password!');
-        } else {
-            Alert.alert('Incorrect username or password!');
-        }
+        try { 
+            const response = await loginRequest({username: 'thanvutru18', password: '123456'})
+            console.log(response.data);
+        } catch (error) {
+        
+       }
+        // let userData = await AsyncStorage.getItem('userData');
+        // if (userData) {
+        //     userData = JSON.parse(userData);
+        //     let arr = [...userData];
+        //     arr = arr.filter(
+        //         (value) =>
+        //             value.username.toLocaleLowerCase() == username.toLocaleLowerCase() &&
+        //             value.password == password
+        //     );
+        //     if (arr.length > 0) {
+        //         let curUser = arr[0];
+        //         AsyncStorage.setItem('curUser', JSON.stringify(curUser));
+        //         navigate('HomeScreen', { useName: 'gotoHome' });
+        //         Alert.alert('Logged in successfully')
+        //     } else Alert.alert('Incorrect username or password!');
+        // } else {
+        //     Alert.alert('Incorrect username or password!');
+        // }
     };
 
     const goToSignUpScreen = () => {
         navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
-    };
-    const goToProfile = () => { 
-        navigate('Profile', { useName: 'Nguyen Tuan Thanh'});
     };
     return (
         <View style={styles.container}>

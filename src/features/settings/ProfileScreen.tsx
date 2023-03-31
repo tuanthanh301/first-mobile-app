@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View,ScrollView } from 'react-native'
 import StyledInput from '../../components/common/StyledInput'
 import React from 'react'
 import StyledProfile from '../../components/common/StyledProfile';
@@ -7,7 +7,7 @@ import Images from '../../assests';
 const ProfileScreen = () => {
   const goToDetails = () => {};
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         <Text style={styles.title}>Account Information</Text>
         <Image
           style={styles.tinyLogo}
@@ -47,7 +47,7 @@ const ProfileScreen = () => {
           rightIcon={Images.icons.profileScreen.arrow}
         />
         <View style={styles.line}></View>
-    </View>
+    </ScrollView>
   )
 }
 

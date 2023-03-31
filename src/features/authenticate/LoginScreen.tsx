@@ -20,7 +20,7 @@ const LoginScreen = () => {
         } else if (password.trim() == '' || !password) {
             Alert.alert('Password cannot be left blank!');
         } else {
-            // login();
+            login();
         }
     }
     // const goToHome = async() => {
@@ -28,7 +28,7 @@ const LoginScreen = () => {
     //         const response = await loginRequest({username: 'thanvutru18', password: '123456'})
     //         console.log(response.data);
     //     } catch (error) {
-        
+
     //    }
     // };
 
@@ -45,8 +45,7 @@ const LoginScreen = () => {
             if (arr.length > 0) {
                 let curUser = arr[0];
                 AsyncStorage.setItem('curUser', JSON.stringify(curUser));
-                navigate('HomeScreen', { useName: 'gotoHome' });
-                Alert.alert('Logged in successfully')
+                navigate('BottomTab', { useName: 'gotoHome' });
             } else Alert.alert('Incorrect username or password!');
         } else {
             Alert.alert('Incorrect username or password!');
@@ -56,8 +55,8 @@ const LoginScreen = () => {
     const goToSignUpScreen = () => {
         navigate('SignUpScreen', { useName: 'Nguyen Tuan Thanh' });
     };
-    const goToProfile = () => { 
-        navigate('Profile', { useName: 'Nguyen Tuan Thanh'});
+    const goToProfile = () => {
+        navigate('Profile', { useName: 'Nguyen Tuan Thanh' });
     };
     return (
         <View style={styles.container}>
@@ -163,7 +162,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: 45,
         marginTop: 10,
-        marginBottom: Platform.OS === 'ios'? 20 : 0,
+        marginBottom: Platform.OS === 'ios' ? 20 : 0,
         alignItems: "center",
         justifyContent: "center",
 

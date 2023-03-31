@@ -10,7 +10,9 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{ headerShown: false }}
+    >
       <Tab.Screen name="Home" component={HomeFilm} />
       <Tab.Screen name="Trailer" component={Trailer} />
       <Tab.Screen name="Favorite" component={Favorite} />

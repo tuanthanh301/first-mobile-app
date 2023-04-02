@@ -4,7 +4,6 @@ import Carousel from 'react-native-anchor-carousel';
 import Search from '../../components/common/Search';
 import IconCategory from '../../components/common/IconCategory';
 import Images from '../../assests';
-// import { FontAwesome5, Feather, MaterialIcons } from '@expo/vector-icons'
 
 
 const HomeFilm = () => {

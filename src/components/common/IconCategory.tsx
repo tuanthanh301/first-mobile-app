@@ -15,7 +15,7 @@ const IconCategory = (props: Props) => {
           source={props.categoryfilmIMG}
         />
       </TouchableOpacity>
-      <Text>
+      <Text style={{color: 'white'}}>
         {props.text}
       </Text>
     </View>

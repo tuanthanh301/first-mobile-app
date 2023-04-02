@@ -8,6 +8,7 @@ import SettingScreen from '../../features/settings/Trailer';
 import ProfileScreen from '../../features/settings/ProfileScreen';
 import HomeScreen from '../../features/home/HomeScreen';
 import MyTabs from './Tab';
+import DetailFilm from '../../features/DetailFilm/DetailFilm';
 
 
 export type RootStackParamList = Record<string, any>;
@@ -19,9 +20,10 @@ const AppStack = () => {
       screenOptions={{ headerShown: false }}
       initialRouteName="LoginScreen" 
     >
-      <MainStack.Screen name='LoginScreen' component={LoginScreen}/>
-      <MainStack.Screen name='SignUpScreen' component={SignUpScreen}/>
+      {/* <MainStack.Screen name='LoginScreen' component={LoginScreen}/>
+      <MainStack.Screen name='SignUpScreen' component={SignUpScreen}/> */}
       <MainStack.Screen name='BottomTab' component={MyTabs}/>
+      <MainStack.Screen name='DetailFilm' component={DetailFilm}/>
     </MainStack.Navigator>
   )
 };

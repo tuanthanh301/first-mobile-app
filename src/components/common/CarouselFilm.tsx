@@ -1,35 +1,78 @@
-import * as React from 'react';
-import { Dimensions, Text, View } from 'react-native';
-import Carousel from 'react-native-reanimated-carousel';
+// import React from 'react';
+// import { View, Text, Image, TouchableOpacity, StyleSheet, ImageSourcePropType } from 'react-native';
+// import { useNavigation } from '@react-navigation/native'
 
-function Index() {
-    const width = Dimensions.get('window').width;
-    return (
-        <View style={{ flex: 1 }}>
-            <Carousel
-                loop
-                width={width}
-                height={width / 2}
-                autoPlay={true}
-                data={[...new Array(6).keys()]}
-                scrollAnimationDuration={1000}
-                onSnapToItem={(index) => console.log('current index:', index)}
-                renderItem={({ index }) => (
-                    <View
-                        style={{
-                            flex: 1,
-                            borderWidth: 1,
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <Text style={{ textAlign: 'center', fontSize: 30 }}>
-                            {index}
-                        </Text>
-                    </View>
-                )}
-            />
-        </View>
-    );
-}
+// const DATA = [
+//     {
+//         id: '0',
+//         title: 'Phim Hay',
+//         imgFilm: '("../../assests/icon/Tom_and_Jerry_The_Movie_Poster.png")',
+//     },
+//     {
+//         id: '1',
+//         title: 'Phim KEKE',
+//     },
+//     {
+//         id: '2',
+//         title: 'Phim KHEKHE',
+//     },
+//     {
+//         id: '0',
+//         title: 'Phim Hay',
+//         imgFilm: '("../../assests/icon/Tom_and_Jerry_The_Movie_Poster.png")',
+//     },
+//     {
+//         id: '1',
+//         title: 'Phim KEKE',
+//     },
+//     {
+//         id: '2',
+//         title: 'Phim KHEKHE',
+//     },
+// ];
 
-export default Index;
+// type ItemProps = {
+//     title: string,
+//     imgFilm: ImageSourcePropType,
+//     navigation: any,
+//     item: any,
+// };
+
+// function CarouselFilm({ title, navigation, item }: ItemProps) {
+//     const { navigate } = useNavigation();
+//     const goToDetail = () => {
+//         if (navigation) {
+//             navigate('DetailFilm', {
+//                 item: item,
+//             });
+//         }
+//     };
+//     return (
+//         <View
+//             style={styles.item}
+//         // onPress={goToDetailFilm}
+//         >
+//             <Text style={styles.title}>{title}</Text>
+//             <Image
+//                 style={styles.tinyLogo}
+//                 source={require("../../assests/icon/Tom_and_Jerry_The_Movie_Poster.png")}
+//             />
+//         </View>
+//     )
+// }
+
+// export default CarouselFilm;
+
+// const styles = StyleSheet.create({
+//     item: {
+//         backgroundColor: '#f9c2ff',
+//         padding: 20,
+//         marginVertical: 8,
+//         marginHorizontal: 16,
+//         width: 300,
+//         height: 400,
+//     },
+//     title: {
+//         fontSize: 32,
+//     },
+// });

@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
 },
   title: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     fontSize: 30,
     color: 'white',
     fontWeight: 'bold',

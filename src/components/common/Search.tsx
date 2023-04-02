@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     styleSearch: {
-        width: '90%',
+        width: '93%',
         borderRadius: 25,
         paddingLeft: 25,
         backgroundColor: (`#696969`),

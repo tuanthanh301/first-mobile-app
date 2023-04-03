@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View,ScrollView } from 'react-native'
+import { Image, StyleSheet, Text, View,ScrollView, Platform } from 'react-native'
 import StyledInput from '../../components/common/StyledInput'
 import React from 'react'
 import StyledProfile from '../../components/common/StyledProfile';
@@ -22,7 +22,7 @@ const ProfileScreen = () => {
           label='Details'
           rightIcon={Images.icons.profileScreen.arrow}
         />
-        <View style={styles.line}></View>
+        <View style={styles.line}></View> 
         <StyledProfile
           leftIcon={Images.icons.profileScreen.edit}
           label='Edit / Update'
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-    // paddingTop: Platform.OS === 'ios' ? 40 : 0,
+    paddingTop: Platform.OS === 'ios' ? 50 : 0,
 
 },
   title: {

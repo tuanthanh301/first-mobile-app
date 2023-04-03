@@ -21,6 +21,13 @@ const Images = {
             paymentHistory: require('./icon/history.png'),
             logOut: require('./icon/logout.png'),
             arrow: require('./icon/rightarrow.png'),
+        },
+        tab: {
+            home: require('./icon/home.png'),
+            trailer: require('./icon/trailer.png'),
+            favorite: require('./icon/favorite.png'),
+            profile: require('./icon/usergray.png'),
+
         }
     },
 };

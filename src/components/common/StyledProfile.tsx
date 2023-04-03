@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ImageSourcePropType, StyleProp, StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native'
+import { Image, ImageSourcePropType, StyleProp, StyleSheet, Text, TextInput, TouchableOpacity, View, ViewStyle } from 'react-native'
 import StyledInput from './StyledInput';
 
 
@@ -14,16 +14,19 @@ interface Props {
 const StyledProfile = (props: any) => {
   return (
     <View>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={{marginLeft: 20}}>
-          <Image source={props.leftIcon} style={{ width: 25, height: 25 }} />
+      <TouchableOpacity>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ marginLeft: 20 }}>
+            <Image source={props.leftIcon} style={{ width: 25, height: 25 }} />
+          </View>
+          <TextInput />
+          <Text style={styles.label}>{props.label}</Text>
+          <View style={styles.arrow}>
+            <Image source={props.rightIcon} style={{ width: 16, height: 16 }} />
+          </View>
         </View>
-        <TextInput />
-        <Text style={styles.label}>{props.label}</Text>
-        <View style={styles.arrow}>
-          <Image source={props.rightIcon} style={{ width: 16, height: 16 }} />
-        </View>
-      </View>
+      </TouchableOpacity>
+
     </View>
 
   )

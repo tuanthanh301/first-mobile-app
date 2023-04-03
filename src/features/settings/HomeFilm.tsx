@@ -123,6 +123,9 @@ const HomeFilm = () => {
                   source={require("../../assests/icon/playicon.png")}
                 />
               </TouchableOpacity>
+              <TouchableOpacity style={styles.playIconOrderMovie}>
+                <Text style={{color: 'white',fontSize: 13,fontWeight: '800'}}>Order Movie</Text>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingHorizontal: 14, marginTop: 20 }}>
               <Text style={{ color: 'white', opacity: 0.8, lineHeight: 20 }}>
@@ -235,13 +238,14 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-    marginBottom: 6
+    marginBottom: 6,
   },
   movieStat: {
     paddingLeft: 14,
     color: 'white',
     fontWeight: 'bold',
     fontSize: 14,
+    marginTop: 7,
     opacity: 0.8
   },
   playIconContainer: {
@@ -275,7 +279,17 @@ const styles = StyleSheet.create({
     height: 100,
     paddingHorizontal: 30,
   },
-
+  playIconOrderMovie: {
+    width: 90,
+    height: 35,
+    backgroundColor: 'orange',
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    right: 70,
+    top: 35,
+  },
 });
 
 export default HomeFilm;

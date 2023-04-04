@@ -6,7 +6,6 @@ import SignUpScreen from '../../features/signup/SignUpScreen';
 import LoginScreen from '../../features/authenticate/LoginScreen';
 import SettingScreen from '../../features/settings/Trailer';
 import ProfileScreen from '../../features/settings/ProfileScreen';
-import HomeScreen from '../../features/home/HomeScreen';
 import MyTabs from './Tab';
 import DetailFilm from '../../features/DetailFilm/DetailFilm';
 

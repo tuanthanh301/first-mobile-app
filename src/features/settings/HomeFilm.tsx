@@ -39,11 +39,15 @@ const HomeFilm = () => {
 
   const carouselRef = useRef(null);
 
+  const handleOrderFilm = () => {
+
+  }
+
   const { width, height } = Dimensions.get('window')
 
-  const routeRecents = () => {
-    props.navigation.navigate('Recents')
-  }
+  // const routeRecents = () => {
+  //   props.navigation.navigate('Recents')
+  // }
   const renderItem = ({ item, index }) => {
     return (
       <View>
@@ -72,7 +76,9 @@ const HomeFilm = () => {
 
   return (
     <ScrollView style={{ backgroundColor: '#000' }} blurRadius={100}>
-
+      <Video
+        source={{ url: 'http://link-to-your-video.mp4' }}
+      />
       <StatusBar backgroundColor='#000' barStyle='light-content' />
 
       <View style={styles.carouselContentContainer}>
@@ -124,7 +130,7 @@ const HomeFilm = () => {
                 />
               </TouchableOpacity>
               <TouchableOpacity style={styles.playIconOrderMovie}>
-                <Text style={{color: 'white',fontSize: 13,fontWeight: '800'}}>Order Movie</Text>
+                <Text style={{ color: 'white', fontSize: 13, fontWeight: '800' }}>Order Movie</Text>
               </TouchableOpacity>
             </View>
             <View style={{ paddingHorizontal: 14, marginTop: 20 }}>

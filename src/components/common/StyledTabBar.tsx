@@ -62,13 +62,10 @@ const StyledTabBar = ({state, descriptors, navigation}: any) => {
 const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
-    marginBottom: 25,
-    borderTopColor: '#DEE2E6',
     justifyContent: 'space-around',
-    borderTopWidth: 1,
     alignItems: Platform.OS === 'ios' ? 'flex-end' : 'center',
     paddingTop: 10,
-    // backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   tabButton: {
     alignItems: 'center',

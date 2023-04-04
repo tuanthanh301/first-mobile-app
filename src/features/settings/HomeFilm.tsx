@@ -4,7 +4,7 @@ import Carousel from 'react-native-anchor-carousel';
 import Search from '../../components/common/Search';
 import IconCategory from '../../components/common/IconCategory';
 import Images from '../../assests';
-
+import Video from 'react-native-video';
 
 const HomeFilm = () => {
 
@@ -76,9 +76,9 @@ const HomeFilm = () => {
 
   return (
     <ScrollView style={{ backgroundColor: '#000' }} blurRadius={100}>
-      <Video
+      {/* <Video
         source={{ url: 'http://link-to-your-video.mp4' }}
-      />
+      /> */}
       <StatusBar backgroundColor='#000' barStyle='light-content' />
 
       <View style={styles.carouselContentContainer}>

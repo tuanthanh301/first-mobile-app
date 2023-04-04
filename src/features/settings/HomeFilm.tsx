@@ -4,9 +4,12 @@ import Carousel from 'react-native-anchor-carousel';
 import Search from '../../components/common/Search';
 import IconCategory from '../../components/common/IconCategory';
 import Images from '../../assests';
-import Video from 'react-native-video';
+import { useNavigation } from '@react-navigation/native';
+
 
 const HomeFilm = () => {
+
+  const { navigate } = useNavigation();
 
   const [background, setBackground] = useState({
     uri: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9',
@@ -39,10 +42,6 @@ const HomeFilm = () => {
 
   const carouselRef = useRef(null);
 
-  const handleOrderFilm = () => {
-
-  }
-
   const { width, height } = Dimensions.get('window')
 
   // const routeRecents = () => {
@@ -73,12 +72,13 @@ const HomeFilm = () => {
     )
   }
 
+  const goToDetailFilm = () => {
+    navigate('DetailFilm', { useName: 'DetailFilm' });
+  };
 
   return (
     <ScrollView style={{ backgroundColor: '#000' }} blurRadius={100}>
-      {/* <Video
-        source={{ url: 'http://link-to-your-video.mp4' }}
-      /> */}
+
       <StatusBar backgroundColor='#000' barStyle='light-content' />
 
       <View style={styles.carouselContentContainer}>
@@ -129,7 +129,10 @@ const HomeFilm = () => {
                   source={require("../../assests/icon/playicon.png")}
                 />
               </TouchableOpacity>
-              <TouchableOpacity style={styles.playIconOrderMovie}>
+              <TouchableOpacity
+                style={styles.playIconOrderMovie}
+                onPress={goToDetailFilm}
+              >
                 <Text style={{ color: 'white', fontSize: 13, fontWeight: '800' }}>Order Movie</Text>
               </TouchableOpacity>
             </View>
@@ -287,14 +290,14 @@ const styles = StyleSheet.create({
   },
   playIconOrderMovie: {
     width: 90,
-    height: 35,
+    height: 38,
     backgroundColor: 'orange',
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
     right: 70,
-    top: 35,
+    top: 38,
   },
 });
 

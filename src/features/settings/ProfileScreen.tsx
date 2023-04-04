@@ -1,52 +1,62 @@
-import { Image, StyleSheet, Text, View,ScrollView, Platform } from 'react-native'
+import { Image, StyleSheet, Text, View, ScrollView, Platform } from 'react-native'
 import StyledInput from '../../components/common/StyledInput'
 import React from 'react'
 import StyledProfile from '../../components/common/StyledProfile';
 import Images from '../../assests';
+import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
-  const goToDetails = () => {};
+  const { navigate } = useNavigation();
+
+  const onGoBack = () => {
+
+    navigate('LoginScreen', { useName: 'goBack' });
+
+  };
+
+  const goToDetails = () => { };
   return (
     <ScrollView style={styles.container}>
-        <Text style={styles.title}>Account Information</Text>
-        <Image
-          style={styles.tinyLogo}
-          source={{
+      <Text style={styles.title}>Account Information</Text>
+      <Image
+        style={styles.tinyLogo}
+        source={{
           uri: 'https://www.bhdstar.vn/wp-content/uploads/2018/03/BHD-Star-U22ONYX-1920x1080.jpg',
         }}
       />
-        <View style={styles.line}></View>
-        <StyledProfile
-          onPress={goToDetails}
-          leftIcon={Images.icons.profileScreen.details}
-          label='Details'
-          rightIcon={Images.icons.profileScreen.arrow}
-        />
-        <View style={styles.line}></View> 
-        <StyledProfile
-          leftIcon={Images.icons.profileScreen.edit}
-          label='Edit / Update'
-          rightIcon={Images.icons.profileScreen.arrow}
-        />
-        <View style={styles.line}></View>
-        <StyledProfile
-          leftIcon={Images.icons.profileScreen.changePassword}
-          label='Change Password'
-          rightIcon={Images.icons.profileScreen.arrow}
-        />
-        <View style={styles.line}></View>
-        <StyledProfile
-          leftIcon={Images.icons.profileScreen.paymentHistory}
-          label='Payment History'
-          rightIcon={Images.icons.profileScreen.arrow}
-        />
-        <View style={styles.line}></View>
-        <StyledProfile
-          leftIcon={Images.icons.profileScreen.logOut}
-          label='Log Out'
-          rightIcon={Images.icons.profileScreen.arrow}
-        />
-        <View style={styles.line}></View>
+      <View style={styles.line}></View>
+      <StyledProfile
+        onPress={goToDetails}
+        leftIcon={Images.icons.profileScreen.details}
+        label='Details'
+        rightIcon={Images.icons.profileScreen.arrow}
+      />
+      <View style={styles.line}></View>
+      <StyledProfile
+        leftIcon={Images.icons.profileScreen.edit}
+        label='Edit / Update'
+        rightIcon={Images.icons.profileScreen.arrow}
+      />
+      <View style={styles.line}></View>
+      <StyledProfile
+        leftIcon={Images.icons.profileScreen.changePassword}
+        label='Change Password'
+        rightIcon={Images.icons.profileScreen.arrow}
+      />
+      <View style={styles.line}></View>
+      <StyledProfile
+        leftIcon={Images.icons.profileScreen.paymentHistory}
+        label='Payment History'
+        rightIcon={Images.icons.profileScreen.arrow}
+      />
+      <View style={styles.line}></View>
+      <StyledProfile
+        onPress={onGoBack}
+        leftIcon={Images.icons.profileScreen.logOut}
+        label='Log Out'
+        rightIcon={Images.icons.profileScreen.arrow}
+      />
+      <View style={styles.line}></View>
     </ScrollView>
   )
 }
@@ -59,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     paddingTop: Platform.OS === 'ios' ? 50 : 0,
 
-},
+  },
   title: {
     alignSelf: 'center',
     fontSize: 30,
@@ -73,8 +83,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   line: {
-    width: '100%', 
-    backgroundColor: 'white', 
+    width: '100%',
+    backgroundColor: 'white',
     height: 0.4,
     marginBottom: 15,
     marginTop: 15

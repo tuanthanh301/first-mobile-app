@@ -1,11 +1,16 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-
+import { useNavigation } from '@react-navigation/native';
 const DetailFilm = () => {
+  const { navigate,goBack } = useNavigation();
+
+  const onGoBack = () => {
+    goBack();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onGoBack}>
           <Image
             style={styles.Logoquaylai}
             source={require("../../assests/icon/Quaylai.png")}

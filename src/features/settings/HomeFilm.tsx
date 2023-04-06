@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, ImageBackground, TextInput, TouchableWithoutFeedback, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, ImageBackground, TextInput, TouchableWithoutFeedback, FlatList, Platform } from 'react-native';
 import React, { useRef, useState, useEffect } from 'react';
 import Carousel from 'react-native-anchor-carousel';
 import Search from '../../components/common/Search';
@@ -26,10 +26,6 @@ const HomeFilm = () => {
     { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvojK5wx-WhTMW17ps7c5A6aonXSPM5ISNpN8l-cVT2ZDd1BvJ', title: 'Indiana Jones and the Dial of Destiny', released: '2023 ‧ Action/Thriller ‧ 1h 50m', key: '7', desc: 'Indiana Jones and the Dial of Destiny is an upcoming American action-adventure film directed by James Mangold, who co-wrote the script with Jez Butterworth, John-Henry Butterworth, and David Koepp.' },
 
   ]);
-
-
-
-
   const [list, setList] = useState([
     { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJKLiEyyz1Q9RC8EBYl3ijr3nuGeyO2ETmwy6Kdq0AQtD0elWD', key: '1' },
     { image: 'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg', key: '2' },
@@ -71,12 +67,12 @@ const HomeFilm = () => {
 
 
   return (
-    <ScrollView style={{ backgroundColor: '#000' }} blurRadius={100}>
+    <ScrollView style={styles.container} blurRadius={100}>
 
       <StatusBar backgroundColor='#000' barStyle='light-content' />
 
       <View style={styles.carouselContentContainer}>
-        <View style={{ ...StyleSheet.absoluteFill, backgroundColor: '#000' }}>
+        <View style={{...StyleSheet.absoluteFill, backgroundColor: '#000' }}>
           <ImageBackground source={{ uri: background.uri }} style={styles.ImageBg} blurRadius={10}>
             <View>
               <Search />
@@ -124,7 +120,7 @@ const HomeFilm = () => {
                 />
               </TouchableOpacity>
               <TouchableOpacity style={styles.playIconOrderMovie}>
-                <Text style={{color: 'white',fontSize: 13,fontWeight: '800'}}>Order Movie</Text>
+                <Text style={{ color: 'white', fontSize: 13, fontWeight: '800' }}>Order Movie</Text>
               </TouchableOpacity>
             </View>
             <View style={{ paddingHorizontal: 14, marginTop: 20 }}>
@@ -164,7 +160,10 @@ const styles = StyleSheet.create({
 
 
   // CAROUSEL STYLES
+  container: {
+    backgroundColor: 'black',
 
+  },
   carouselImage: {
     width: 200,
     height: 320,
@@ -189,6 +188,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     height: 720,
+    // paddingTop: Platform.OS === 'ios' ? 60 : 0,
     paddingHorizontal: 14
   },
   // SearchboxContainer: {

@@ -62,13 +62,15 @@ const StyledTabBar = ({state, descriptors, navigation}: any) => {
 const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
-    marginBottom: 25,
-    borderTopColor: '#DEE2E6',
+    borderTopColor: 'black',
     justifyContent: 'space-around',
     borderTopWidth: 1,
     alignItems: Platform.OS === 'ios' ? 'flex-end' : 'center',
+    marginBottom: 25,
     paddingTop: 10,
-    // backgroundColor: 'black'
+    // height: 70,
+    // borderRadius: 40,
+    backgroundColor: 'black'
   },
   tabButton: {
     alignItems: 'center',
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   borderTop: {
     top: -10,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#ff6a00',
     width: 50,
   },
   tabIcon: {

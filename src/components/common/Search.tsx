@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react';
 import StyledInput from './StyledInput'
 import Images from '../../assests';
@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         alignItems: 'center',
+        marginTop: Platform.OS === 'ios' ? 30 : 0,
+
     },
     styleSearch: {
         width: '93%',

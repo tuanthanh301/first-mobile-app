@@ -106,7 +106,7 @@ const LoginScreen = () => {
                 <TouchableOpacity>
                     <SocialLogin
                         content='Continue with Twitter'
-                        source='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png' />
+                        source='https://png.pngtree.com/png-clipart/20221019/original/pngtree-twitter-social-media-round-icon-png-image_8704823.png' />
                 </TouchableOpacity>
             </View>
             <View style={styles.textDontHave}>

@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View, ScrollView, Platform } from 'react-native'
+import { Image, StyleSheet, Text, View, ScrollView, Platform, TouchableOpacity } from 'react-native'
 import StyledInput from '../../components/common/StyledInput'
 import React from 'react'
 import StyledProfile from '../../components/common/StyledProfile';
@@ -6,12 +6,10 @@ import Images from '../../assests';
 import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
-  const { navigate } = useNavigation();
+  const { navigate, goBack } = useNavigation();
 
   const onGoBack = () => {
-
-    navigate('LoginScreen', { useName: 'goBack' });
-
+    navigate('LoginScreen', { useName: 'Out' })
   };
 
   const goToDetails = () => { };
@@ -26,7 +24,7 @@ const ProfileScreen = () => {
       />
       <View style={styles.line}></View>
       <StyledProfile
-        onPress={goToDetails}
+        onPress={onGoBack}
         leftIcon={Images.icons.profileScreen.details}
         label='Details'
         rightIcon={Images.icons.profileScreen.arrow}
@@ -50,13 +48,16 @@ const ProfileScreen = () => {
         rightIcon={Images.icons.profileScreen.arrow}
       />
       <View style={styles.line}></View>
-      <StyledProfile
-        onPress={onGoBack}
-        leftIcon={Images.icons.profileScreen.logOut}
-        label='Log Out'
-        rightIcon={Images.icons.profileScreen.arrow}
-      />
-      <View style={styles.line}></View>
+
+      <View style={{ alignItems: 'center' ,marginBottom: 40,marginTop: 30 }}>
+        <TouchableOpacity
+          onPress={onGoBack}
+          style={{ width: 100, height: 40, backgroundColor: 'orange', justifyContent: 'center', alignItems: 'center', borderRadius: 40 }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: '700', color: 'white' }}>Logout</Text>
+        </TouchableOpacity>
+      </View>
+
     </ScrollView>
   )
 }

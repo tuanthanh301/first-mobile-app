@@ -1,14 +1,15 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import StyledCheckBox from '../../components/base/StyledCheckBox';
 const DetailFilm = () => {
-  const { navigate,goBack } = useNavigation();
+  const { navigate, goBack } = useNavigation();
 
   const onGoBack = () => {
     goBack();
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.logo}>
         <TouchableOpacity onPress={onGoBack}>
           <Image
@@ -31,7 +32,7 @@ const DetailFilm = () => {
               style={styles.Logoicon}
               source={require("../../assests/icon/cam.png")}
             />
-            <Text style={{ marginTop: 5 }}>
+            <Text style={{ marginTop: 5, color: 'white' }}>
               Comedy
             </Text>
           </View>
@@ -40,7 +41,7 @@ const DetailFilm = () => {
               style={styles.Logoicon}
               source={require("../../assests/icon/dongho.png")}
             />
-            <Text style={{ marginTop: 5 }}>
+            <Text style={{ marginTop: 5, color: 'white' }}>
               1h 20m
             </Text>
           </View>
@@ -49,60 +50,100 @@ const DetailFilm = () => {
               style={styles.Logoicon}
               source={require("../../assests/icon/ngoisao.png")}
             />
-            <Text style={{ marginTop: 5 }}>
+            <Text style={{ marginTop: 5, color: 'white' }}>
               4.7/5
             </Text>
           </View>
         </View>
       </View>
-      <View style={styles.in4Film}>
+      <View style={styles.in4FilmName}>
         <View style={{ alignItems: 'center', marginBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray', width: '80%' }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>TOM AND JERRY</Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>TOM AND JERRY</Text>
         </View>
       </View>
 
-      <ScrollView>
-        <View style={styles.in4Film}>
-          <View style={styles.desFilm}>
-            <Text style={{ marginTop: 5 }}>
-              Chưa thấy ai cover nhạc của Tùng hay cho đến khi xem video này ạ. Thực sự bản phối quá hay và giọng bạn nữ cũng hợp nữa. Có thể hát nhạc của Tùng đã khó rồi mà bản phối này đối với mình quá đỉnh luôn.😍
-              203
-              Phản hồi
-              5 phản hồi
-              Quang Minh Tăng
-              Quang Minh Tăng
-              1 năm trước
-              Một phần trình diễn tuyệt vời. Từ giai điệu, giọng hát, bản phối, hình thể trên sân khấu từng động tác rất đẹp. Không liên quan mấy chứ body và bộ đồ của chị rất hợp 😁
-              46
-              Phản hồi
-              Ngth Thuyquynh
-              Ngth Thuyquynh
-              1 năm trước
-              Sơn Tùng M-TP là idol của mình, trước giờ những bài cover nhạc của Tùng mình đều ko thích. Nhưng riêng bản phối này thật quá tuyệt vời, rất hợp với vibe của bài hát, nghe như những năm 80,90 vậy
-              hưa thấy ai cover nhạc của Tùng hay cho đến khi xem video này ạ. Thực sự bản phối quá hay và giọng bạn nữ cũng hợp nữa. Có thể hát nhạc của Tùng đã khó rồi mà bản phối này đối với mình quá đỉnh luôn.😍
-              203
-              Phản hồi
-              5 phản hồi
-              Quang Minh Tăng
-              Quang Minh Tăng
-              1 năm trước
-              Một phần trình diễn tuyệt vời. Từ giai điệu, giọng hát, bản phối, hình thể trên sân khấu từng động tác rất đẹp. Không liên quan mấy chứ body và bộ đồ của chị rất hợp 😁
-              46
-              Phản hồi
-              Ngth Thuyquynh
-              Ngth Thuyquynh
-              1 năm trước
-              Sơn Tùng M-TP là idol của mình, trước giờ những bài cover nhạc của Tùng mình đều ko thích. Nhưng riêng bản phối này thật quá tuyệt vời, rất hợp với vibe của bài hát, nghe như những năm 80,90 vậy</Text>
-          </View>
+
+      <View style={styles.in4Film}>
+        <View style={styles.desFilm}>
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
+          <StyledCheckBox />
         </View>
-      </ScrollView>
+      </View>
+
       <View style={styles.backgroudButton}>
         <TouchableOpacity
           style={styles.button}>
           <Text style={styles.buttonText}>Get Reservation</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -162,12 +203,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
-  in4Film: {
+  in4FilmName: {
+    width: '100%',
     alignItems: 'center',
   },
+  in4Film: {
+    width: '100%',
+    height: 270,
+  },
   desFilm: {
-    width: '85%',
-    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+
     justifyContent: 'center',
   },
   Logoicon: {

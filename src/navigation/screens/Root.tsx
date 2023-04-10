@@ -19,8 +19,8 @@ const AppStack = () => {
       screenOptions={{ headerShown: false }}
       initialRouteName="LoginScreen" 
     >
-      {/* <MainStack.Screen name='LoginScreen' component={LoginScreen}/>
-      <MainStack.Screen name='SignUpScreen' component={SignUpScreen}/> */}
+      <MainStack.Screen name='LoginScreen' component={LoginScreen}/>
+      <MainStack.Screen name='SignUpScreen' component={SignUpScreen}/>
       <MainStack.Screen name='BottomTab' component={MyTabs}/>
       <MainStack.Screen name='DetailFilm' component={DetailFilm}/>
     </MainStack.Navigator>

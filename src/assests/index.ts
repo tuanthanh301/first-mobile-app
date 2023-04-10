@@ -24,7 +24,7 @@ const Images = {
         },
         tab: {
             home: require('./icon/home.png'),
-            trailer: require('./icon/trailer.png'),
+            search: require('./icon/search.png'),
             favorite: require('./icon/favorite.png'),
             profile: require('./icon/usergray.png'),
 

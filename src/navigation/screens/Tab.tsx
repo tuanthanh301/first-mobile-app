@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Trailer from '../../features/settings/Trailer';
+
 import ProfileScreen from '../../features/settings/ProfileScreen';
 import Favorite from '../../features/settings/Favorite';
 import HomeFilm from '../../features/settings/HomeFilm';
 import Images from '../../assests';
 import StyledTabBar from '../../components/common/StyledTabBar';
+import SearchScreen from '../../features/settings/SearchScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,9 +21,9 @@ function MyTabs() {
     },
     {
       name: 'TRAILER',
-      title: 'Trailer Screen',
-      component: Trailer,
-      icon: Images.icons.tab.trailer,
+      title: 'Search Screen',
+      component: SearchScreen,
+      icon: Images.icons.tab.search,
     },
     {
       name: 'FAVORITE',

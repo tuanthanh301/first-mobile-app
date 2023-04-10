@@ -1,15 +1,17 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import StyledCheckBox from '../../components/base/StyledCheckBox';
-const DetailFilm = () => {
-  const { navigate, goBack } = useNavigation();
 
+const DetailFilm = ({ route }: any) => {
+  const { navigate, goBack } = useNavigation();
+  const { name, uri, stat } = route.params
   const onGoBack = () => {
     goBack();
   };
   return (
     <ScrollView style={styles.container}>
+      <Image source={{ uri: uri }} style={styles.ImageBg} blurRadius={0.4} />
       <View style={styles.logo}>
         <TouchableOpacity onPress={onGoBack}>
           <Image
@@ -23,7 +25,7 @@ const DetailFilm = () => {
         <View style={styles.anh}>
           <Image
             style={styles.anhphim}
-            source={require("../../assests/icon/Tom_and_Jerry_The_Movie_Poster.png")}
+            source={{ uri: uri }}
           />
         </View>
         <View style={styles.danhgia}>
@@ -42,7 +44,7 @@ const DetailFilm = () => {
               source={require("../../assests/icon/dongho.png")}
             />
             <Text style={{ marginTop: 5, color: 'white' }}>
-              1h 20m
+              {stat}
             </Text>
           </View>
           <View style={styles.danhgiachung}>
@@ -58,37 +60,13 @@ const DetailFilm = () => {
       </View>
       <View style={styles.in4FilmName}>
         <View style={{ alignItems: 'center', marginBottom: 10, borderBottomWidth: 1, borderBottomColor: 'gray', width: '80%' }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>TOM AND JERRY</Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>{name}</Text>
         </View>
       </View>
 
 
       <View style={styles.in4Film}>
         <View style={styles.desFilm}>
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
-          <StyledCheckBox />
           <StyledCheckBox />
           <StyledCheckBox />
           <StyledCheckBox />
@@ -209,7 +187,7 @@ const styles = StyleSheet.create({
   },
   in4Film: {
     width: '100%',
-    height: 270,
+    height: 210,
   },
   desFilm: {
     flexDirection: 'row',
@@ -226,7 +204,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: 70,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -242,5 +219,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontWeight: 'bold',
-  }
+  },
 })

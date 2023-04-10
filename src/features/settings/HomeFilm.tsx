@@ -5,6 +5,7 @@ import Search from '../../components/common/Search';
 import IconCategory from '../../components/common/IconCategory';
 import Images from '../../assests';
 import { useNavigation } from '@react-navigation/native';
+import { film } from '../../assests/data/Film';
 
 
 const HomeFilm = () => {
@@ -14,24 +15,11 @@ const HomeFilm = () => {
   const [background, setBackground] = useState({
     uri: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9',
     name: 'Avengers: End Game',
-    stat: '2019 ‧ Action/Sci-fi ‧ 3h 2m',
+    time: '2019 ‧ Action/Sci-fi ‧ 3h 2m',
     desc: 'After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.'
   })
 
-  const [gallery, setgallery] = useState([
-
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9', title: 'Avengers: End Game', released: '2019 ‧ Action/Sci-fi ‧ 3h 2m', key: '1', desc: 'After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxo7Naxu0tjuSEZ9_faYL--aWjx8V5TKr4q2YeenYKXXik-T5P', title: 'Alita: Battle Angel', released: '2019 ‧ Action/Sci-fi ‧ 2h 2m', key: '2', desc: 'Alita, a battle cyborg, is revived by Ido, a doctor, who realises that she actually has the soul of a teenager. Alita then sets out to learn about her past and find her true identity.' },
-    { image: 'https://www.gstatic.com/tv/thumb/v22vodart/15879807/p15879807_v_v8_aa.jpg', title: 'The Irish Man', released: '2019 ‧ Crime/Drama ‧ 3h 30m', key: '3', desc: 'In the 1950s, truck driver Frank Sheeran gets involved with Russell Bufalino and his Pennsylvania crime family. As Sheeran climbs the ranks to become a top hit man, he also goes to work for Jimmy Hoffa.' },
-    { image: 'https://i.pinimg.com/originals/99/03/9a/99039a6afb682e42c9a12556071b38c9.jpg', title: 'John Wick Chapter 3', released: '2019 ‧ Action/Thriller ‧ 2h 10m', key: '4', desc: 'John Wick is declared excommunicado and a hefty bounty is set on him after he murders an international crime lord. He sets out to seek help to save himself from ruthless hitmen and bounty hunters.' },
-    { image: 'https://upload.wikimedia.org/wikipedia/en/3/34/Tom_and_Jerry_Cowboy_Up.png', title: 'Tom and Jerry: Cowboy Up!', released: '2022 ‧ Action/Thriller ‧ 1h 15m', key: '5', desc: 'Tom and Jerry: Cowboy Up! is a 2022 American animated direct-to-video Western comedy film starring Tom and Jerry, produced by Warner Bros. Animation.' },
-    { image: 'https://bazaarvietnam.vn/wp-content/uploads/2023/01/HBVN-phim-chieu-rap-2023-Evil-Dead-Rise.jpg', title: 'Evil Dead Rise', released: '2023 ‧ Action/Thriller ‧ 1h 36m', key: '6', desc: 'Evil Dead Rise is a 2023 American supernatural horror film written and directed by Lee Cronin. It is the fifth installment of the Evil Dead film series. The film stars Lily Sullivan and Alyssa Sutherland as two estranged sisters trying to survive and save their family from demonic creatures.' },
-    { image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvojK5wx-WhTMW17ps7c5A6aonXSPM5ISNpN8l-cVT2ZDd1BvJ', title: 'Indiana Jones and the Dial of Destiny', released: '2023 ‧ Action/Thriller ‧ 1h 50m', key: '7', desc: 'Indiana Jones and the Dial of Destiny is an upcoming American action-adventure film directed by James Mangold, who co-wrote the script with Jez Butterworth, John-Henry Butterworth, and David Koepp.' },
-
-  ]);
-
-
-
+  const [gallery, setgallery] = useState(film);
 
   const [list, setList] = useState([
     { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJKLiEyyz1Q9RC8EBYl3ijr3nuGeyO2ETmwy6Kdq0AQtD0elWD', key: '1' },
@@ -56,8 +44,9 @@ const HomeFilm = () => {
             setBackground({
               uri: item.image,
               name: item.title,
-              stat: item.released,
-              desc: item.desc
+              time: item.time,
+              desc: item.desc,
+
             })
           }
           }
@@ -66,15 +55,26 @@ const HomeFilm = () => {
           <Text style={styles.carouselText}>{item.title}</Text>
           {/* <MaterialIcons name='library-add' size={30} color='white' style={styles.carouselIcon} /> */}
         </TouchableOpacity>
-
+        <TouchableOpacity
+          style={styles.playIconOrderMovie}
+          onPress={() => {
+            navigate('DetailFilm', {
+              uri: item.image,
+              name: item.title,
+              stat: item.released,
+              desc: item.desc,
+              time: item.time,
+              imgDetailFilm: item.imgDetailFilm,
+            })
+          }}
+        // onPress={goToDetailFilm}
+        >
+          <Text style={{ color: 'white', fontSize: 13, fontWeight: '800' }}>Order Movie</Text>
+        </TouchableOpacity>
       </View>
 
     )
   }
-
-  const goToDetailFilm = () => {
-    navigate('DetailFilm', { useName: 'DetailFilm' });
-  };
 
   return (
     <ScrollView style={{ backgroundColor: '#000' }} blurRadius={100}>
@@ -84,8 +84,8 @@ const HomeFilm = () => {
       <View style={styles.carouselContentContainer}>
         <View style={{ ...StyleSheet.absoluteFill, backgroundColor: '#000' }}>
           <ImageBackground source={{ uri: background.uri }} style={styles.ImageBg} blurRadius={10}>
-            <View>
-              <Search />
+            <View style={{ alignItems: 'center' }}>
+              <Text style={{ fontSize: 30, color: 'white', fontWeight: 'bold', paddingLeft: 5, marginTop: 20, marginBottom: 25 }}>Welcome Back</Text>
             </View>
             <View style={styles.category}>
               <View style={styles.categoryseeall}>
@@ -121,7 +121,7 @@ const HomeFilm = () => {
             <View style={styles.movieInfoContainer}>
               <View style={{ justifyContent: 'center' }}>
                 <Text style={styles.movieName}>{background.name}</Text>
-                <Text style={styles.movieStat}>{background.stat}</Text>
+                <Text style={styles.movieStat}>{background.time}</Text>
               </View>
               <TouchableOpacity style={styles.playIconContainer}>
                 <Image
@@ -129,12 +129,7 @@ const HomeFilm = () => {
                   source={require("../../assests/icon/playicon.png")}
                 />
               </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.playIconOrderMovie}
-                onPress={goToDetailFilm}
-              >
-                <Text style={{ color: 'white', fontSize: 13, fontWeight: '800' }}>Order Movie</Text>
-              </TouchableOpacity>
+
             </View>
             <View style={{ paddingHorizontal: 14, marginTop: 20 }}>
               <Text style={{ color: 'white', opacity: 0.8, lineHeight: 20 }}>
@@ -159,7 +154,6 @@ const HomeFilm = () => {
               <TouchableOpacity style={{ marginRight: 20 }}>
                 <Image source={{ uri: item.image }} style={{ height: 300, width: 200 }} />
                 <View style={{ position: "absolute", height: 5, width: '100%', backgroundColor: '#02ad94', opacity: 0.8 }}></View>
-                {/* <FontAwesome5  name='play' size={38} color='#fff' style={{position: 'absolute',top: '45%', left: '45%',opacity: 0.9}} /> */}
               </TouchableOpacity>
             )
           }}
@@ -289,15 +283,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   playIconOrderMovie: {
-    width: 90,
-    height: 38,
+    width: 85,
+    height: 30,
     backgroundColor: 'orange',
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
-    right: 70,
-    top: 38,
+    top: 10,
+    left: 10,
   },
 });
 
